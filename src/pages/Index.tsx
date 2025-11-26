@@ -1,8 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const Index = () => {
+  const [area, setArea] = useState<string>("20");
+  const [ceilingType, setCeilingType] = useState<string>("economy");
+  
+  const prices: { [key: string]: number } = {
+    economy: 700,
+    matte: 900,
+    glossy: 1100,
+    multilevel: 1500,
+    led: 1300,
+  };
+  
+  const calculatePrice = () => {
+    const areaNum = parseFloat(area) || 0;
+    const pricePerSqm = prices[ceilingType] || 700;
+    return Math.round(areaNum * pricePerSqm);
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -170,6 +191,102 @@ const Index = () => {
               <p className="text-sm text-primary font-semibold">От 1500 ₽</p>
             </Card>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Калькулятор стоимости</h2>
+            <p className="text-lg text-muted-foreground">Рассчитайте примерную стоимость вашего потолка за 30 секунд</p>
+          </div>
+          
+          <Card className="p-8 shadow-2xl border-2 border-primary/20">
+            <div className="space-y-8">
+              <div>
+                <Label className="text-lg font-semibold mb-4 block">Площадь помещения (м²)</Label>
+                <Input 
+                  type="number" 
+                  value={area}
+                  onChange={(e) => setArea(e.target.value)}
+                  placeholder="Введите площадь"
+                  className="text-lg h-14"
+                  min="1"
+                />
+              </div>
+
+              <div>
+                <Label className="text-lg font-semibold mb-4 block">Тип потолка</Label>
+                <RadioGroup value={ceilingType} onValueChange={setCeilingType}>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 p-4 border-2 rounded-lg hover:border-accent transition-colors cursor-pointer">
+                      <RadioGroupItem value="economy" id="economy" />
+                      <Label htmlFor="economy" className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">Эконом потолок</span>
+                          <span className="text-accent font-bold">700 ₽/м²</span>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3 p-4 border-2 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                      <RadioGroupItem value="matte" id="matte" />
+                      <Label htmlFor="matte" className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">Матовый потолок</span>
+                          <span className="text-primary font-bold">900 ₽/м²</span>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3 p-4 border-2 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                      <RadioGroupItem value="glossy" id="glossy" />
+                      <Label htmlFor="glossy" className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">Глянцевый потолок</span>
+                          <span className="text-primary font-bold">1100 ₽/м²</span>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3 p-4 border-2 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                      <RadioGroupItem value="multilevel" id="multilevel" />
+                      <Label htmlFor="multilevel" className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">Многоуровневый</span>
+                          <span className="text-primary font-bold">1500 ₽/м²</span>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3 p-4 border-2 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                      <RadioGroupItem value="led" id="led" />
+                      <Label htmlFor="led" className="flex-1 cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">С LED подсветкой</span>
+                          <span className="text-primary font-bold">1300 ₽/м²</span>
+                        </div>
+                      </Label>
+                    </div>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              <div className="bg-gradient-to-br from-primary to-primary/80 text-white p-8 rounded-xl text-center">
+                <p className="text-lg mb-2 opacity-90">Примерная стоимость</p>
+                <p className="text-5xl font-bold mb-4">{calculatePrice().toLocaleString('ru-RU')} ₽</p>
+                <p className="text-sm opacity-80 mb-6">Под ключ с материалами и монтажом</p>
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6"
+                >
+                  <Icon name="Phone" size={20} className="mr-2" />
+                  Заказать расчёт
+                </Button>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
