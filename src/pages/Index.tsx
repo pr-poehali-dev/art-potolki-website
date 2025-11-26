@@ -9,7 +9,7 @@ const Index = () => {
   };
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/79146667646", "_blank");
+    window.open("https://wa.me/79146666764", "_blank");
   };
 
   return (
@@ -290,7 +290,7 @@ const Index = () => {
       </footer>
 
       <a 
-        href="https://wa.me/79146667646" 
+        href="https://wa.me/79146666764" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 animate-pulse hover:animate-none"
