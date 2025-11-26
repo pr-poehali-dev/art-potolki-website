@@ -53,10 +53,10 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-                Натяжные потолки <span className="text-primary">в Артёме</span>
+                Эконом потолки <span className="text-primary">в Артёме</span>
               </h2>
               <p className="text-xl text-muted-foreground">
-                Профессиональный монтаж натяжных потолков любой сложности. Гарантия 10 лет. Более 500 выполненных проектов.
+                Качественный монтаж натяжных потолков по доступным ценам. <span className="text-accent font-bold">От 700 ₽/м²</span> под ключ. Гарантия 10 лет!
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button onClick={handleWhatsAppClick} size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90">
@@ -68,6 +68,10 @@ const Index = () => {
                 </Button>
               </div>
               <div className="flex items-center gap-6 pt-4">
+                <div className="flex items-center gap-2">
+                  <Icon name="DollarSign" size={24} className="text-accent" />
+                  <span className="text-sm font-semibold">От 700 ₽/м²</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <Icon name="Award" size={24} className="text-accent" />
                   <span className="text-sm font-semibold">Гарантия 10 лет</span>
@@ -93,18 +97,22 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-lg text-muted-foreground">Полный спектр работ по установке натяжных потолков в Артёме</p>
+            <p className="text-lg text-muted-foreground">Эконом потолки в Артёме по доступным ценам — качество без переплат!</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <Icon name="Sparkles" size={28} className="text-primary" />
+            <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 border-accent hover:border-accent shadow-lg relative">
+              <div className="absolute -top-3 -right-3 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold">
+                ХИТ ПРОДАЖ
               </div>
-              <h3 className="text-xl font-bold mb-3">Глянцевые потолки</h3>
+              <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                <Icon name="DollarSign" size={28} className="text-accent" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Эконом потолки</h3>
               <p className="text-muted-foreground mb-4">
-                Идеальное решение для визуального увеличения пространства. Зеркальный эффект создаёт ощущение высоты и света.
+                Качественные матовые потолки по самым доступным ценам. Идеальный вариант для любого интерьера.
               </p>
-              <p className="text-sm text-primary font-semibold">От 350 ₽/м²</p>
+              <p className="text-2xl text-accent font-bold">От 700 ₽/м²</p>
+              <p className="text-xs text-muted-foreground mt-1">Под ключ с монтажом</p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
@@ -115,7 +123,18 @@ const Index = () => {
               <p className="text-muted-foreground mb-4">
                 Классический вариант для любого интерьера. Создают уютную атмосферу и отлично скрывают неровности.
               </p>
-              <p className="text-sm text-primary font-semibold">От 300 ₽/м²</p>
+              <p className="text-sm text-primary font-semibold">От 900 ₽/м²</p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <Icon name="Sparkles" size={28} className="text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Глянцевые потолки</h3>
+              <p className="text-muted-foreground mb-4">
+                Идеальное решение для визуального увеличения пространства. Зеркальный эффект создаёт ощущение высоты.
+              </p>
+              <p className="text-sm text-primary font-semibold">От 1100 ₽/м²</p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
@@ -126,7 +145,7 @@ const Index = () => {
               <p className="text-muted-foreground mb-4">
                 Дизайнерские решения любой сложности. Зонирование пространства и встроенная подсветка.
               </p>
-              <p className="text-sm text-primary font-semibold">От 450 ₽/м²</p>
+              <p className="text-sm text-primary font-semibold">От 1500 ₽/м²</p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
@@ -137,18 +156,7 @@ const Index = () => {
               <p className="text-muted-foreground mb-4">
                 LED-освещение любой конфигурации. Создание уникальной атмосферы и экономия электроэнергии.
               </p>
-              <p className="text-sm text-primary font-semibold">От 400 ₽/м²</p>
-            </Card>
-
-            <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <Icon name="Droplets" size={28} className="text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Для ванных</h3>
-              <p className="text-muted-foreground mb-4">
-                Влагостойкие материалы. Защита от протечек сверху. Долговечность и простота ухода.
-              </p>
-              <p className="text-sm text-primary font-semibold">От 380 ₽/м²</p>
+              <p className="text-sm text-primary font-semibold">От 1300 ₽/м²</p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary">
